@@ -9,7 +9,7 @@ instructor: Hado van Hasslet
 ## Basis
 
 **Motivation:**
-- First automation of repeated physical solutions: *Industrial revolution* 
+- First automation of repeat ed physical solutions: *Industrial revolution* 
 - Second, automation of repeated mental solutions: *Digital revolution*
 - Next step: allow machines to find solution themselves: We then only needs to specify a problem and/or goal
 
@@ -71,10 +71,13 @@ reinforcement learning is based on the **reward hypothesis.
  &= \mathbb{E} \bigl[R_{t+1} + R_{t+2} + R_{t+3} +\ .. \mid S_t = s \bigr]
  \end{align}
 $$
-- The values depend on the actions the agent takes
+The values depend on the actions the agent takes
+
+---
+
 - Goal is to **maximize value**, by picking suitable actions
 - Rewards and values define **utility** of states and action (no supervised feedback)
-- Returns and values can be defined recursively
+- Returns and values can be defined recursively:
 $$
 \begin{align}
 G_t &= R_{t+1} +G_{t+1} \\
@@ -82,9 +85,31 @@ v(s) &= \mathbb{E} \bigl[R_{t+1}+v(S_{t+1}) \mid S_t = s \bigr]
 \end{align}
 $$
 
+Goal is to maximize the value by taking actions. 
+- Actions may have long term consquences.
+- Reward may be delayed
+- It may be better to sacrifice immediate reward to gain more long-term reward
+- **Examples :**
+	1. Refueling a helicopter (might prevent a crash in several hours)
+	2. Defensive moves in a game (may help chances of winning later)
+	3. Learning a new skill (can be costly & time consuming at first)
 
+> [!note] Policy
+> A mapping from states to actions is called a **policy**
+  
+## Action values
+
+It is also possible to condition the value on **actions:**
+
+$$
+\begin{align}
+q(s,a) &= \mathbb{E} \bigl[G_t \mid S_t=s, A_t=a\bigr] \\ 
+&= \mathbb{E} \bigl[R_{t+1}+R_{t+2}+... \mid S_t=s, A_t=a \bigr]
+\end{align}
+$$
 
 ---
 ## References
+
 1. Background material: Reinforcement learning: An introduction, Sutton & Barto 2018 http://incompleteideas.net/book/the-book-2nd.html
 2. Computing machinery and intelligence - Alan Turing https://academic.oup.com/mind/article/LIX/236/433/986238## 
